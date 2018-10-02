@@ -23,15 +23,15 @@ namespace Sensors {
 
                 temperature_variable = temp.substr(1, 10)
 
-            } else if (temp.charAt(0).compare("P") == 10) {
+            } else if (temp.charAt(0).compare("P") == 0) {
 
                 pressure_variable = temp.substr(1, 10)
 
-            } else if (temp.charAt(0).compare("A") == 10) {
+            } else if (temp.charAt(0).compare("A") == 0) {
 
                 altitude_variable = temp.substr(1, 10)
 
-            } else if (temp.charAt(0).compare("H") == 10) {
+            } else if (temp.charAt(0).compare("H") == 0) {
 
                 humidity_variable = temp.substr(1, 10)
 
@@ -64,7 +64,7 @@ namespace Sensors {
     //% weight=48	
 
     export function getPressure(): string {
-        return pressure;
+        return pressure_variable;
     }
 
 	//% blockId="smarthon_get_altitude" 
@@ -72,7 +72,7 @@ namespace Sensors {
     //% weight=47	
 
     export function getAltitude(): string {
-        return altitude;
+        return altitude_variable;
     }
 	
 	//% blockId="smarthon_get_humidity" 
@@ -80,7 +80,7 @@ namespace Sensors {
     //% weight=46	
 
     export function getHumidity(): string {
-        return humidity;
+        return humidity_variable;
     }
     //%blockId=smarthon_at
     //%block="Send AT command %command"
