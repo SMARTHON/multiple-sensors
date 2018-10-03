@@ -1,9 +1,9 @@
 namespace Sensors {    
-    let light_variable = ""
-    let temperature_variable = ""
-	let pressure_variable = ""
-	let altitude_variable = ""
-	let humidity_variable = ""
+    let light_variable = 0
+    let temperature_variable = 0
+	let pressure_variable = 0
+	let altitude_variable = 0
+	let humidity_variable = 0
 
     // -------------- 1. Initialization ----------------
     //%blockId=initialize
@@ -17,23 +17,23 @@ namespace Sensors {
 
             if (temp.charAt(0).compare("L") == 0) {
 
-                light_variable = temp.substr(1, 10)
+                light_variable = parseInt(temp.substr(1, 10))
 
             } else if (temp.charAt(0).compare("T") == 0) {
 
-                temperature_variable = temp.substr(1, 10)
+                temperature_variable = parseInt(temp.substr(1, 10))
 
             } else if (temp.charAt(0).compare("P") == 0) {
 
-                pressure_variable = temp.substr(1, 10)
+                pressure_variable = parseInt(temp.substr(1, 10))
 
             } else if (temp.charAt(0).compare("A") == 0) {
 
-                altitude_variable = temp.substr(1, 10)
+                altitude_variable = parseInt(temp.substr(1, 10))
 
             } else if (temp.charAt(0).compare("H") == 0) {
 
-                humidity_variable = temp.substr(1, 10)
+                humidity_variable = parseInt(temp.substr(1, 10))
 
             } else {
                 basic.showString(temp)
@@ -48,7 +48,7 @@ namespace Sensors {
     //% weight=50	
 	//% blockGap=7	
 
-    export function getLight(): string {
+    export function getLight(): number {
         return light_variable;
     }
 
@@ -57,7 +57,7 @@ namespace Sensors {
     //% weight=49
 	//% blockGap=7	
 
-    export function getTemperature(): string {
+    export function getTemperature(): number {
         return temperature_variable;
     }
 	
@@ -66,7 +66,7 @@ namespace Sensors {
     //% weight=48	
 	//% blockGap=7	
 
-    export function getPressure(): string {
+    export function getPressure(): number {
         return pressure_variable;
     }
 
@@ -75,7 +75,7 @@ namespace Sensors {
     //% weight=47	
 	//% blockGap=7	
 
-    export function getAltitude(): string {
+    export function getAltitude(): number {
         return altitude_variable;
     }
 	
@@ -83,7 +83,7 @@ namespace Sensors {
     //% block="Get humidity (%)"
     //% weight=46		
 
-    export function getHumidity(): string {
+    export function getHumidity(): number {
         return humidity_variable;
     }
 
