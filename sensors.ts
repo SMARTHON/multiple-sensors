@@ -5,9 +5,15 @@ namespace Sensors {
 	let altitude_variable = 0
 	let humidity_variable = 0
 	
-	let flag = true
-	let oldCommand = ""
-
+	let ledCommand = ""
+	let vibratorCommand = ""
+	let usbCommand = ""
+	let buzzerCommand = ""
+	let motor1Command = ""
+	let motor2Command = ""
+	let servoCommand = ""
+	let generalCommand = ""
+	
     // -------------- 1. Initialization ----------------
     //%blockId=initialize
     //%block="Initialize Smarthon multiple-sensor"
@@ -48,8 +54,7 @@ namespace Sensors {
 
     //% blockId="smarthon_get_light" 
     //% block="Get light (Lx)"
-    //% weight=50	
-	//% blockGap=7	
+    //% weight=80	
 
     export function getLight(): number {
         return light_variable;
@@ -57,8 +62,7 @@ namespace Sensors {
 
     //% blockId="smarthon_get_temperature" 
     //% block="Get temperature (°C)"
-    //% weight=49
-	//% blockGap=7	
+    //% weight=79
 
     export function getTemperature(): number {
         return temperature_variable;
@@ -66,8 +70,7 @@ namespace Sensors {
 	
 	//% blockId="smarthon_get_pressure" 
     //% block="Get pressure (hPa)"
-    //% weight=48	
-	//% blockGap=7	
+    //% weight=78	
 
     export function getPressure(): number {
         return pressure_variable;
@@ -75,8 +78,7 @@ namespace Sensors {
 
 	//% blockId="smarthon_get_altitude" 
     //% block="Get altitude (m)"
-    //% weight=47	
-	//% blockGap=7	
+    //% weight=77	
 
     export function getAltitude(): number {
         return altitude_variable;
@@ -84,35 +86,121 @@ namespace Sensors {
 	
 	//% blockId="smarthon_get_humidity" 
     //% block="Get humidity (%)"
-    //% weight=46		
+    //% weight=76	
 
     export function getHumidity(): number {
         return humidity_variable;
     }
 
+		
+	//% blockId="smarthon_led"
+    //% block="Set LED to intensity %intensity"
+    //% intensity.min=0 intensity.max=1023
+    //% weight=50
+	//%subcategory=More
+	//% blockGap=7	
+	
+    export function TurnLED(intensity: number): void {
+			
+		let newCommand = "o/8/" + intensity		
+		if(ledCommand != newCommand){
+			serial.writeLine(newCommand)
+			ledCommand = newCommand
+		}
+    }
+	
+	//% blockId="smarthon_vibrator"
+    //% block="Set vibrator to intensity %intensity"
+    //% intensity.min=0 intensity.max=1023
+    //% weight=49
+	//%subcategory=More
+	//% blockGap=7	
+	
+    export function TurnVibrator(intensity: number): void {
+			
+		let newCommand = "o/13/" + intensity		
+		if(vibratorCommand != newCommand){
+			serial.writeLine(newCommand)
+			vibratorCommand = newCommand
+		}
+    }
+	
+	//% blockId="smarthon_usb"
+    //% block="Set USB to intensity %intensity"
+    //% intensity.min=0 intensity.max=1023
+    //% weight=48	
+	//%subcategory=More
+	//% blockGap=7	
+	
+    export function TurnUSB(intensity: number): void {
+			
+		let newCommand = "o/4/" + intensity		
+		if(usbCommand != newCommand){
+			serial.writeLine(newCommand)
+			usbCommand = newCommand
+		}
+    }
+	
+	//% blockId="smarthon_buzzer"
+    //% block="Set Buzzer to intensity %intensity"
+    //% intensity.min=0 intensity.max=1023
+    //% weight=47	
+	//%subcategory=More
+	//% blockGap=7	
+	
+    export function TurnBuzzer(intensity: number): void {
+			
+		let newCommand = "o/12/" + intensity		
+		if(buzzerCommand != newCommand){
+			serial.writeLine(newCommand)
+			buzzerCommand = newCommand
+		}
+    }
+	
+	//% blockId="smarthon_waterpump"
+    //% block="Set Water pump to intensity %intensity"
+    //% intensity.min=0 intensity.max=1023
+    //% weight=46	
+	//%subcategory=More
+	//% blockGap=7	
+	
+    export function TurnWaterpump(intensity: number): void {
+			
+		let newCommand = "o/6/" + intensity		
+		if(motor1Command != newCommand){
+			serial.writeLine(newCommand)
+			motor1Command = newCommand
+		}
+    }
+	
+	//% blockId="smarthon_servo"
+    //% block="Set Servo to degree %degree"
+    //% intensity.min=0 intensity.max=180
+    //% weight=45	
+	//%subcategory=More
+	
+    export function TurnServo(intensity: number): void {
+			
+		let newCommand = "o/6/" + intensity		
+		if(servoCommand != newCommand){
+			serial.writeLine(newCommand)
+			servoCommand = newCommand
+		}
+    }
 	
 	//% blockId="smarthon_output"
     //% block="Set output pin %pin| to intensity %intensity"
     //% intensity.min=0 intensity.max=1023
-    //% weight=45	
-	//% blockGap=7	
+    //% weight=44	
+	//%subcategory=More
+	
     export function TurnOutput(pin: number, intensity: number): void {
 			
 		let newCommand = "o/" + pin + "/" + intensity		
-		if(oldCommand != newCommand){
+		if(generalCommand != newCommand){
 			serial.writeLine(newCommand)
-			oldCommand = newCommand
+			generalCommand = newCommand
 		}
     }
-	
-		
-    //%blockId=smarthon_at
-    //%block="Send AT command %command"
-    //% weight=44
-    	
-    export function sendAT(command: string): void {
-        serial.writeLine(command);
-    }
-
 
 }
