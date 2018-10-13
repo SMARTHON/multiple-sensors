@@ -4,6 +4,9 @@ namespace Sensors {
 	let pressure_variable = 0
 	let altitude_variable = 0
 	let humidity_variable = 0
+	
+	let flag = true
+	let oldCommand = ""
 
     // -------------- 1. Initialization ----------------
     //%blockId=initialize
@@ -94,9 +97,12 @@ namespace Sensors {
     //% weight=45	
 	//% blockGap=7	
     export function TurnOutput(pin: number, intensity: number): void {
-        
-		serial.writeLine("o/" + pin + "/" + intensity);
-
+			
+		let newCommand = "o/" + pin + "/" + intensity		
+		if(oldCommand != newCommand){
+			serial.writeLine(newCommand)
+			oldCommand = newCommand
+		}
     }
 	
 		
