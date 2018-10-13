@@ -107,6 +107,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			ledCommand = newCommand
 		}
+		basic.pause(2000);
     }
 	
 	//% blockId="smarthon_vibrator"
@@ -123,6 +124,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			vibratorCommand = newCommand
 		}
+		basic.pause(2000);
     }
 	
 	//% blockId="smarthon_usb"
@@ -139,6 +141,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			usbCommand = newCommand
 		}
+		basic.pause(2000);
     }
 	
 	//% blockId="smarthon_buzzer"
@@ -155,6 +158,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			buzzerCommand = newCommand
 		}
+		basic.pause(2000);
     }
 	
 	//% blockId="smarthon_waterpump"
@@ -171,6 +175,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			motor1Command = newCommand
 		}
+		basic.pause(2000);
     }
 	
 	//% blockId="smarthon_servo"
@@ -186,6 +191,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			servoCommand = newCommand
 		}
+		basic.pause(2000);
     }
 	
 	//% blockId="smarthon_output"
@@ -201,6 +207,7 @@ namespace Sensors {
 			serial.writeLine(newCommand)
 			generalCommand = newCommand
 		}
+		basic.pause(2000);
     }
 
 }
