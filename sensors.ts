@@ -4,6 +4,7 @@ namespace Sensors {
 	let pressure_variable = 0
 	let altitude_variable = 0
 	let humidity_variable = 0
+	let soilMoisture_variable = 0
 	
 	let ledCommand = ""
 	let vibratorCommand = ""
@@ -43,6 +44,10 @@ namespace Sensors {
             } else if (temp.charAt(0).compare("H") == 0) {
 
                 humidity_variable = parseInt(temp.substr(1, 10))
+
+            } else if (temp.charAt(0).compare("S") == 0) {
+
+                soilMoisture_variable = parseInt(temp.substr(1, 10))
 
             } else {
                 basic.showString(temp)
@@ -90,6 +95,14 @@ namespace Sensors {
 
     export function getHumidity(): number {
         return humidity_variable;
+    }
+	
+	//% blockId="smarthon_get_soilmoisture" 
+    //% block="Get soil moisture"
+    //% weight=75	
+
+    export function getSoilmoisture(): number {
+        return soilMoisture_variable;
     }
 
 		
@@ -186,7 +199,7 @@ namespace Sensors {
 	
     export function TurnServo(intensity: number): void {
 			
-		let newCommand = "o/6/" + intensity		
+		let newCommand = "v/7/" + intensity		
 		if(servoCommand != newCommand){
 			serial.writeLine(newCommand)
 			servoCommand = newCommand
