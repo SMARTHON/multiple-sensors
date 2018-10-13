@@ -1,6 +1,6 @@
 /**
  * Sensors blocks
  */
-//% weight=100 color=#F59E20 icon="\uf1eb"
-namespace Sensors {
+//% weight=100 color=#00FF00 icon="\uf1b2"
+namespace Plant {
 }

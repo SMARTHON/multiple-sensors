@@ -1,4 +1,4 @@
-namespace Sensors {    
+namespace Plant {    
     let light_variable = 0
     let temperature_variable = 0
 	let pressure_variable = 0
