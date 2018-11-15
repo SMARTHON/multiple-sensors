@@ -27,27 +27,27 @@ namespace Plant {
 
             if (temp.charAt(0).compare("L") == 0) {
 
-                light_variable = parseInt(temp.substr(1, 10))
+                light_variable = parseInt(temp.substr(1, temp.length-2))
 
             } else if (temp.charAt(0).compare("T") == 0) {
 
-                temperature_variable = parseInt(temp.substr(1, 10))
+                temperature_variable = parseInt(temp.substr(1, temp.length-2))
 
             } else if (temp.charAt(0).compare("P") == 0) {
 
-                pressure_variable = parseInt(temp.substr(1, 10))
+                pressure_variable = parseInt(temp.substr(1, temp.length-2))
 
             } else if (temp.charAt(0).compare("A") == 0) {
 
-                altitude_variable = parseInt(temp.substr(1, 10))
+                altitude_variable = parseInt(temp.substr(1, temp.length-2))
 
             } else if (temp.charAt(0).compare("H") == 0) {
 
-                humidity_variable = parseInt(temp.substr(1, 10))
+                humidity_variable = parseInt(temp.substr(1, temp.length-2))
 
             } else if (temp.charAt(0).compare("S") == 0) {
 
-                soilMoisture_variable = parseInt(temp.substr(1, 10))
+                soilMoisture_variable = parseInt(temp.substr(1, temp.length-2))
 
             } else {
                 basic.showString(temp)
