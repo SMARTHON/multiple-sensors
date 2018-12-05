@@ -1,7 +1,7 @@
 {
     "name": "pxt-multiple-sensors",
-    "version": "1.0.1",
-    "description": "Testing",
+    "version": "1.0.2",
+    "description": "This is the extension for SMARTHON Plant Kit in PXT",
     "license": "MIT",
     "dependencies": {
         "core": "*"		
